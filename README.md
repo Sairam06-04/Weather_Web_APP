@@ -1,6 +1,6 @@
 # 🌦 Weather Web App
 Just an Internship Project @KodNest
-# Note: This Project Is Fully VibeCoded.
+# Note: This project was built entirely through vibe coding
 
 A simple and elegant Weather Web Application built using HTML, CSS, and JavaScript with a modern Glass Morphism UI design.
 
