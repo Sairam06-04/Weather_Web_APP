@@ -1,5 +1,6 @@
-# 🌦 Glass Weather Web App
+# 🌦 Weather Web App
 Just an Internship Project @KodNest
+# Note: This Project Is Fully VibeCoded.
 
 A simple and elegant Weather Web Application built using HTML, CSS, and JavaScript with a modern Glass Morphism UI design.
 
@@ -68,8 +69,7 @@ In real-world applications, API keys should be stored securely in backend.
 ## 👨‍💻 Author
 
 Sairam Shetti  
-Aspiring Full Stack Developer  
-Passionate about Web Development and Clean UI Design
+Developer  
 
 ---
 
