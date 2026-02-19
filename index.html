@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Glass Weather App</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #74ebd5, #ACB6E5);
+        }
+
+        .card {
+            backdrop-filter: blur(15px);
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            padding: 30px;
+            width: 320px;
+            text-align: center;
+            color: white;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+            border: 1px solid rgba(255,255,255,0.3);
+        }
+
+        input {
+            padding: 10px;
+            width: 80%;
+            border-radius: 10px;
+            border: none;
+            margin-bottom: 10px;
+            outline: none;
+        }
+
+        button {
+            padding: 10px 20px;
+            border-radius: 10px;
+            border: none;
+            cursor: pointer;
+            background: white;
+            color: #333;
+            font-weight: bold;
+        }
+
+        button:hover {
+            background: #f0f0f0;
+        }
+
+        #result {
+            margin-top: 20px;
+        }
+
+        img {
+            width: 60px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="card">
+    <h2>🌦 Weather App</h2>
+    <input type="text" id="city" placeholder="Enter city name">
+    <br>
+    <button onclick="getWeather()">Search</button>
+
+    <div id="result"></div>
+</div>
+
+<script>
+    async function getWeather() {
+        const city = document.getElementById("city").value;
+
+        if (!city) {
+            alert("Enter city name");
+            return;
+        }
+
+        const apiKey = "42edf17aa120d882fd479a1e81b74fcf";
+        const url = `https://api.weatherstack.com/current?access_key=${apiKey}&query=${city}`;
+
+        const response = await fetch(url);
+        const data = await response.json();
+
+        if (data.error) {
+            document.getElementById("result").innerHTML = "City not found!";
+            return;
+        }
+
+        document.getElementById("result").innerHTML = `
+            <h3>${data.location.name}, ${data.location.country}</h3>
+            <p>🌡 ${data.current.temperature}°C</p>
+            <p>${data.current.weather_descriptions[0]}</p>
+            <img src="${data.current.weather_icons[0]}" />
+        `;
+    }
+</script>
+
+</body>
+</html>
